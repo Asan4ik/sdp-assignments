@@ -5,21 +5,21 @@ import (
 	"errors"
 )
 
-// CarBuilder holds intermediate state during construction
+// Holds intermediate state during construction
 type CarBuilder struct {
 	car Car
 }
 
-// NewCarBuilder creates a builder with mandatory fields and predefined defaults
+// Creates a builder with mandatory fields and predefined defaults
 func NewCarBuilder(make, model string) *CarBuilder {
 	return &CarBuilder {
 		car: Car {
-			Make: make,
-			Model: model,
-			Seats: 4,
+			Make:       make,
+			Model:      model,
+			Seats:      4,
 			EngineType: "V4",
-			HorsePower: 150,
-			HasGPS: false,
+			Horsepower: 150,
+			HasGPS:     false,
 			HasSunroof: false,
 			IsSportPkg: false,
 		},
@@ -28,13 +28,13 @@ func NewCarBuilder(make, model string) *CarBuilder {
 
 // Getters and Setters
 func (b *CarBuilder) SetSeats(seats int) *CarBuilder {
-	b.car.seats = seats
+	b.car.Seats = seats
 	return b
 }
 
-func (b *CarBuilder) SetEngine(engineType string, horsePower int) *CarBuilder {
-	b.car.engineType = engineType
-	b.car.horsePower = horsePower
+func (b *CarBuilder) SetEngine(engineType string, horsepower int) *CarBuilder {
+	b.car.EngineType = engineType
+	b.car.Horsepower = horsepower
 	return b
 }
 
@@ -54,14 +54,14 @@ func (b *CarBuilder) AddSportPackage() *CarBuilder {
 }
 //
 
-// Build validates Car constraints and returns its final instance
+// Validates car constraints and returns its final instance
 func (b *CarBuilder) Build() (*Car, error) {
-	if b.car.seats <= 0 {
+	if b.car.Seats <= 0 {
 		return nil, errors.New("A car must have at least 1 seat")
 	}
 
-	if b.car.IsSportPkg && b.car.horsePower < 300 {
-		return nil, fmt.Errorf("Sport package requires at least 300 HP. Current HP is %d", b.car.horsePower)
+	if b.car.IsSportPkg && b.car.Horsepower < 300 {
+		return nil, fmt.Errorf("Sport package requires at least 300 HP. Current HP is %d", b.car.Horsepower)
 	}
 
 	builtCar := b.car

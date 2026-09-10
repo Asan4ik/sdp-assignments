@@ -9,16 +9,16 @@ type Car struct {
 	Model       string
 	Seats       int
 	EngineType  string
-	HorsePower int
+	Horsepower int
 	HasGPS      bool
 	HasSunroof  bool
 	IsSportPkg  bool
 }
 
 // Prints specs of a Car
-func (c *Car) PrintSpecs() {
-	fmt.Printf("--- %s %s Specs ---", c.Make, c.Model)
-	fmt.Printf("Engine: %s (%d HP), c.EngineType, c.Horsepower")
+func (c *Car) Print() {
+	fmt.Printf("--- %s %s Specs ---\n", c.Make, c.Model)
+	fmt.Printf("Engine: %s (%d HP)\n", c.EngineType, c.Horsepower)
 	fmt.Printf("Seats: %d\n", c.Seats)
 	fmt.Printf("GPS: %t | Sunroof: %t | Sport Package: %t\n\n", c.HasGPS, c.HasSunroof, c.IsSportPkg)
 }

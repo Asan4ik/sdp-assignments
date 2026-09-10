@@ -1,2 +1,2 @@
 # sdp-assignments
-My completed assignments for the Software Design Patterns Course in AITU
+My completed assignments for a Software Design Patterns Course in AITU
