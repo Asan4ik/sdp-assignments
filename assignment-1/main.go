@@ -3,28 +3,28 @@ package main
 import "fmt"
 
 func main() {
-	normalCar, err := NewCarBuilder("Kia", "K5").
-			SetSeats(4).
-			AddGPS().
-			Build()
-	
-	if err != nil {
-		fmt.Println("Error building normal car:", err)
-	} else {
-		normalCar.Print()
-	}
+	director := NewDirector()
 
-	sportsCar, err := NewCarBuilder("Porsche", "911").
-		SetSeats(2).
-		SetEngine("Twin-Turbo Flat-6", 443).
-		AddGPS().
-		AddSunroof().
-		AddSportPackage().
-		Build()
-	
+	// Direct usage of SportsCarBuilder
+	sportsBuilder := NewSportsCarBuilder("Porsche", "911 GT3")
+	director.BuildSportsCar(sportsBuilder)
+
+	sportsCar, err := sportsBuilder.Build()
 	if err != nil {
 		fmt.Println("Error building sports car:", err)
 	} else {
 		sportsCar.Print()
+	}
+
+	// Direct usage of ElectricCarBuilder with specific battery setup
+	evBuilder := NewElectricCarBuilder("Tesla", "Model S")
+	evBuilder.SetBatteryCapacity(100)
+	director.BuildEV(evBuilder)
+
+	evCar, err := evBuilder.Build()
+	if err != nil {
+		fmt.Println("Error building EV:", err)
+	} else {
+		evCar.Print()
 	}
 }
