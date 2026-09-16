@@ -8,7 +8,7 @@ func NewDirector() *Director {
 }
 
 // Configures sports car options
-func (d *Director) BuildSportsCar(builder CarBuilder) {
+func (director *Director) BuildSportsCar(builder CarBuilder) {
 	builder.SetSeats(2).
 		SetEngine("V10 Naturally Aspirated", 610).
 		AddGPS().
@@ -16,7 +16,7 @@ func (d *Director) BuildSportsCar(builder CarBuilder) {
 }
 
 // Configures electric vehicle options
-func (d *Director) BuildEV(builder CarBuilder) {
+func (director *Director) BuildEV(builder CarBuilder) {
 	builder.SetSeats(5).
 		SetEngine("Tri-Motor Plaid", 1020).
 		AddGPS().

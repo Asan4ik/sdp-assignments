@@ -16,12 +16,12 @@ type Car struct {
 }
 
 // Prints specs of a Car
-func (c *Car) Print() {
-	fmt.Printf("--- %s %s Specs ---\n", c.Make, c.Model)
-	fmt.Printf("Engine/Power: %s (%d HP)\n", c.EngineType, c.Horsepower)
-	if c.BatteryKWh > 0 {
-		fmt.Printf("Battery Capacity: %d kWh\n", c.BatteryKWh)
+func (car *Car) Print() {
+	fmt.Printf("--- %s %s Specs ---\n", car.Make, car.Model)
+	fmt.Printf("Engine/Power: %s (%d HP)\n", car.EngineType, car.Horsepower)
+	if car.BatteryKWh > 0 {
+		fmt.Printf("Battery Capacity: %d kWh\n", car.BatteryKWh)
 	}
-	fmt.Printf("Seats: %d\n", c.Seats)
-	fmt.Printf("GPS: %t | Sunroof: %t | Sport Package: %t\n\n", c.HasGPS, c.HasSunroof, c.IsSportPkg)
+	fmt.Printf("Seats: %d\n", car.Seats)
+	fmt.Printf("GPS: %t | Sunroof: %t | Sport Package: %t\n\n", car.HasGPS, car.HasSunroof, car.IsSportPkg)
 }

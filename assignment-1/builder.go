@@ -35,40 +35,40 @@ func NewSportsCarBuilder(make, model string) *SportsCarBuilder {
 	}
 }
 
-func (b *SportsCarBuilder) SetSeats(seats int) CarBuilder {
-	b.car.Seats = seats
-	return b
+func (builder *SportsCarBuilder) SetSeats(seats int) CarBuilder {
+	builder.car.Seats = seats
+	return builder
 }
 
-func (b *SportsCarBuilder) SetEngine(engineType string, horsepower int) CarBuilder {
-	b.car.EngineType = engineType
-	b.car.Horsepower = horsepower
-	return b
+func (builder *SportsCarBuilder) SetEngine(engineType string, horsepower int) CarBuilder {
+	builder.car.EngineType = engineType
+	builder.car.Horsepower = horsepower
+	return builder
 }
 
-func (b *SportsCarBuilder) AddGPS() CarBuilder {
-	b.car.HasGPS = true
-	return b
+func (builder *SportsCarBuilder) AddGPS() CarBuilder {
+	builder.car.HasGPS = true
+	return builder
 }
 
-func (b *SportsCarBuilder) AddSunroof() CarBuilder {
-	b.car.HasSunroof = true
-	return b
+func (builder *SportsCarBuilder) AddSunroof() CarBuilder {
+	builder.car.HasSunroof = true
+	return builder
 }
 
-func (b *SportsCarBuilder) AddSportPackage() CarBuilder {
-	b.car.IsSportPkg = true
-	return b
+func (builder *SportsCarBuilder) AddSportPackage() CarBuilder {
+	builder.car.IsSportPkg = true
+	return builder
 }
 
-func (b *SportsCarBuilder) Build() (*Car, error) {
-	if b.car.Seats <= 0 {
+func (builder *SportsCarBuilder) Build() (*Car, error) {
+	if builder.car.Seats <= 0 {
 		return nil, errors.New("sports car must have at least 1 seat")
 	}
-	if b.car.Horsepower < 300 {
-		return nil, fmt.Errorf("sports car requires at least 300 HP, got %d", b.car.Horsepower)
+	if builder.car.Horsepower < 300 {
+		return nil, fmt.Errorf("sports car requires at least 300 HP, got %d", builder.car.Horsepower)
 	}
-	builtCar := b.car
+	builtCar := builder.car
 	return &builtCar, nil
 }
 
@@ -93,44 +93,44 @@ func NewElectricCarBuilder(make, model string) *ElectricCarBuilder {
 	}
 }
 
-func (b *ElectricCarBuilder) SetSeats(seats int) CarBuilder {
-	b.car.Seats = seats
-	return b
+func (builder *ElectricCarBuilder) SetSeats(seats int) CarBuilder {
+	builder.car.Seats = seats
+	return builder
 }
 
-func (b *ElectricCarBuilder) SetEngine(engineType string, horsepower int) CarBuilder {
-	b.car.EngineType = engineType
-	b.car.Horsepower = horsepower
-	return b
+func (builder *ElectricCarBuilder) SetEngine(engineType string, horsepower int) CarBuilder {
+	builder.car.EngineType = engineType
+	builder.car.Horsepower = horsepower
+	return builder
 }
 
-func (b *ElectricCarBuilder) SetBatteryCapacity(kWh int) *ElectricCarBuilder {
-	b.car.BatteryKWh = kWh
-	return b
+func (builder *ElectricCarBuilder) SetBatteryCapacity(kWh int) *ElectricCarBuilder {
+	builder.car.BatteryKWh = kWh
+	return builder
 }
 
-func (b *ElectricCarBuilder) AddGPS() CarBuilder {
-	b.car.HasGPS = true
-	return b
+func (builder *ElectricCarBuilder) AddGPS() CarBuilder {
+	builder.car.HasGPS = true
+	return builder
 }
 
-func (b *ElectricCarBuilder) AddSunroof() CarBuilder {
-	b.car.HasSunroof = true
-	return b
+func (builder *ElectricCarBuilder) AddSunroof() CarBuilder {
+	builder.car.HasSunroof = true
+	return builder
 }
 
-func (b *ElectricCarBuilder) AddSportPackage() CarBuilder {
-	b.car.IsSportPkg = true
-	return b
+func (builder *ElectricCarBuilder) AddSportPackage() CarBuilder {
+	builder.car.IsSportPkg = true
+	return builder
 }
 
-func (b *ElectricCarBuilder) Build() (*Car, error) {
-	if b.car.Seats <= 0 {
+func (builder *ElectricCarBuilder) Build() (*Car, error) {
+	if builder.car.Seats <= 0 {
 		return nil, errors.New("Electric car must have at least 1 seat")
 	}
-	if b.car.BatteryKWh < 40 {
-		return nil, fmt.Errorf("Electric car battery must be at least 40 kWh, got %d", b.car.BatteryKWh)
+	if builder.car.BatteryKWh < 40 {
+		return nil, fmt.Errorf("Electric car battery must be at least 40 kWh, got %d", builder.car.BatteryKWh)
 	}
-	builtCar := b.car
+	builtCar := builder.car
 	return &builtCar, nil
 }
