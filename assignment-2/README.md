@@ -15,7 +15,7 @@ Implemented in Go
 
 - `gui/` - Abstract Factory
   - `Button` and `Checkbox` are the abstract products
-  - `WindowsFactory` and `MacFactory` are the concrete factories, each producing
+  - `WindowsFactory`, `MacFactory` and `LinuxFactory` are the concrete factories, each producing
     a matching set of Windows or Mac components
 
 - `main.go` - a small client that exercises both patterns
@@ -40,5 +40,5 @@ consistency, which a single Factory Method could not do on its own
 - No type switches in client code - `Application` and `main` only call interface
   methods, so adding a new transport or platform never touches existing code
 - Each factory method does exactly one thing: build and return one object
-- Concrete factories (`WindowsFactory`, `MacFactory`) build their whole family the
+- Concrete factories (`WindowsFactory`, `MacFactory`, `LinuxFactory`) build their whole family the
   same way, so there is no duplicated logic between them

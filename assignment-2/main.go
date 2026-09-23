@@ -44,4 +44,7 @@ func main() {
 
 	macApplication := NewApplication(gui.MacFactory{})
 	macApplication.Render()
+
+	linuxApplication := NewApplication(gui.LinuxFactory{})
+	linuxApplication.Render()
 }
