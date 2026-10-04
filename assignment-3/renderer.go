@@ -8,7 +8,7 @@ type Renderer interface {
 }
 
 /* VectorRenderer is a ConcreteImplementor that draws using vector
-   primitives (lines and curves). */
+   primitives (lines and curves) */
 type VectorRenderer struct{}
 
 func (v * VectorRenderer) RenderCircle(radius float64) {
@@ -19,7 +19,7 @@ func (v *VectorRenderer) RenderSquare(side float64) {
 	fmt.Printf("Drawin a square with side %.1f using vector")
 }
 
-// RasterRenderer is a ConcreteImplementor that draws using pixels.
+// RasterRenderer is a ConcreteImplementor that draws using pixels
 type RasterRenderer struct{}
 
 func (r *RasterRenderer) RenderCircle(radius float64) {
