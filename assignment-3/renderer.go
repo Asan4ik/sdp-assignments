@@ -16,7 +16,7 @@ func (v * VectorRenderer) RenderCircle(radius float64) {
 }
 
 func (v *VectorRenderer) RenderSquare(side float64) {
-	fmt.Printf("Drawin a square with side %.1f using vector")
+	fmt.Printf("Drawin a square with side %.1f using vector", side)
 }
 
 // RasterRenderer is a ConcreteImplementor that draws using pixels
