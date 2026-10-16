@@ -2,7 +2,7 @@ package subsystem
 
 import "fmt"
 
-// BitrateReader reads video data and re-encodes it.
+// BitrateReader reads video data and re-encodes it
 type BitrateReader struct{}
 
 // Read reads the raw data of the file using the source codec
