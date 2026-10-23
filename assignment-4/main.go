@@ -25,11 +25,11 @@ func main() {
 		log.Fatalf("Error: %s\n", err)
 	}
 	fmt.Println("Result:", audio)
-	
+
 	fmt.Println("\n--- bad input ---")
 	_, err = converter.Convert("notes.txt", "ogg")
 	fmt.Println("Error: ", err)
-	
+
 	_, err = converter.Convert("holiday.mp4", "avi")
 	fmt.Println("Error:", err)
 }

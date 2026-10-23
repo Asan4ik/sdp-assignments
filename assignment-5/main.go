@@ -2,15 +2,33 @@ package main
 
 import (
 	"fmt"
+
 	"main/calculator"
 )
 
 func main() {
+	a, b := 5.0, 3.0
+
 	calc := calculator.NewCalculator(calculator.AddStrategy{})
-	var a float64 = 5
-	var b float64 = 3
-	calc.SetStrategy(calculator.AddStrategy{})
-	fmt.Printf("%v + %v = %v\n", a, b, calc.Calculate(a, b))
+	run(calc, a, b, "+")
+
 	calc.SetStrategy(calculator.SubtractStrategy{})
-	fmt.Printf("%v - %v = %v\n", a, b, calc.Calculate(a, b))
+	run(calc, a, b, "-")
+
+	calc.SetStrategy(calculator.MultiplyStrategy{})
+	run(calc, a, b, "*")
+
+	calc.SetStrategy(calculator.DivideStrategy{})
+	run(calc, a, b, "/")
+
+	run(calc, a, 0, "/")
+}
+
+func run(calc *calculator.Calculator, a, b float64, symbol string) {
+	result, err := calc.Calculate(a, b)
+	if err != nil {
+		fmt.Printf("%v %s %v = error: %v\n", a, symbol, b, err)
+		return
+	}
+	fmt.Printf("%v %s %v = %v\n", a, symbol, b, result)
 }
